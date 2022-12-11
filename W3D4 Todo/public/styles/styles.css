@@ -1,0 +1,29 @@
+h2,
+h3 {
+    font-weight: bold;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid lightgray;
+    text-align: center;
+}
+
+
+button, form {
+    display: inline;
+}
+
+.Completed {
+    background-color: lightgreen;
+}
+
+p.Completed {
+ text-decoration: line-through;   
+}
+
+.hidden {
+    display: none;
+}

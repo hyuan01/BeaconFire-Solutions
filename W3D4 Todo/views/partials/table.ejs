@@ -1,0 +1,57 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Todo Item</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% for (let i = 0; i < data.length; i++) { %>
+            <form action="/todo?_method=PUT" method="POST" id="edit_form-<%= i+1 %>"></form>
+            <tr class="<%= data[i].status %>">
+                <td><%= i+1 %></td>
+
+                <td>
+                    <p id="default-<%= i+1 %>" class="<%= data[i].status %>"><%= data[i].title %></p>
+                    <input id="editMode-<%= i+1 %>" class="form-control hidden" type="text" name="title" form="edit_form-<%= i+1 %>" value="<%= data[i].title %>" required>
+                </td>
+
+                <td>
+                    <p id="default-<%= i+1 %>"><%= data[i].description %></p>
+                    <input id="editMode-<%= i+1 %>" class="form-control hidden" type="text" name="description" form="edit_form-<%= i+1 %>" value="<%= data[i].description %>" required>
+                </td>
+
+                <td>
+                    <p id="default-<%= i+1 %>"><%= data[i].status %></p>
+                    <select id="editMode-<%= i+1 %>" class="hidden" name="status" form="edit_form-<%= i+1 %>">
+                        <option value="Completed">Completed</option>
+                        <option value="In Progress">In Progress</option>
+                    </select>
+                </td>
+                
+                <td>
+                    <p id="default-<%= i+1 %>"><%= data[i].priority %></p>
+                    <select id="editMode-<%= i+1 %>" class="hidden" name="priority" form="edit_form-<%= i+1 %>">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </td>
+
+                <td>
+                    <button id="default-<%= i+1 %>" class="btn btn-warning" onclick="toggleRow('<%= i+1 %>')"> Edit </button>
+                    <button id="editMode-<%= i+1 %>" class="hidden btn btn-secondary" onclick="toggleRow('<%= i+1 %>')"> Cancel </button>
+                    <form action="/todo?_method=DELETE" method="POST">
+                        <button id="default-<%= i+1 %>" class="btn btn-danger" name="delete" value=<%= data[i]._id %> > Delete </button>
+                    </form>
+                    <button id="editMode-<%= i+1 %>" class="hidden btn btn-primary" form="edit_form-<%= i+1 %>" name="edit" value=<%= data[i]._id %>> Save </button>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+  </table>
