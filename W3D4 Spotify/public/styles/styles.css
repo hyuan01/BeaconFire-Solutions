@@ -1,0 +1,19 @@
+body {
+    background: black;
+    color: green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav-link {
+    color: white;
+}
+
+.my-profile {
+    background: white;
+    border-radius: 25px;
+    color: black;
+}
+
+hr {
+background: green;
+}

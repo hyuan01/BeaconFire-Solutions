@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %> 
+
+<h1>Artists</h1>
+
+<ul>
+    <% for (let artist of artists) {%>
+        <li><%= artist.name %></li>
+    <% }%>
+</ul>

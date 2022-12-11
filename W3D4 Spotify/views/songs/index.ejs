@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %> 
+
+<h1>Songs</h1>
+
+<ul>
+    <% for (let song of songs) {%>
+        <li><%= song.title %> -- <%= song.artist %> [<%= song.category %>] [<%= song.language %>]</li>
+    <% }%>
+</ul>
